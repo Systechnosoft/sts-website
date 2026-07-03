@@ -1,0 +1,645 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Systechnosoft Design System - Modern Enterprise Brand
+All colors MUST be HSL. Typography: Montserrat (headings), Inter (body).
+*/
+
+@layer base {
+  :root {
+    /* Systechnosoft Brand Colors */
+    --sys-red: 357 94% 55%;           /* #E52629 - Primary Red */
+    --sys-black: 0 0% 11%;            /* #1C1C1C - Pitch Black */
+    --sys-charcoal: 0 0% 24%;         /* #3C3C3C - Charcoal Grey */
+    --sys-ash: 0 0% 96%;              /* #F5F5F5 - Ash Grey */
+    --sys-blue: 212 100% 50%;         /* #007AFF - Accent Blue */
+    
+    /* Semantic Tokens */
+    --background: 0 0% 100%;
+    --foreground: var(--sys-black);
+    
+    --card: 0 0% 100%;
+    --card-foreground: var(--sys-black);
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--sys-black);
+    
+    --primary: var(--sys-red);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: var(--sys-ash);
+    --secondary-foreground: var(--sys-charcoal);
+    
+    --muted: var(--sys-ash);
+    --muted-foreground: var(--sys-charcoal);
+    
+    --accent: var(--sys-blue);
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 357 94% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: var(--sys-blue);
+    
+    --radius: 0.25rem;
+    
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--sys-red)) 0%, hsl(var(--sys-red) / 0.8) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(var(--sys-ash)) 100%);
+    
+    /* Enterprise Shadows */
+    --shadow-card: 0 1px 4px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 4px 12px hsl(0 0% 0% / 0.15);
+    --shadow-focus: 0 0 0 2px hsl(var(--sys-blue) / 0.3);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-micro: all 0.15s ease-out;
+    
+    /* Performance-optimized CSS animations */
+    @keyframes hero-conic-rotation {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat;
+  }
+  
+  /* Anchor sections - scroll margin for fixed header */
+  .anchor-section {
+    scroll-margin-top: 96px;
+  }
+  
+  /* Performance-optimized hero animations */
+  .hero-conic-rotate {
+    animation: hero-conic-rotation 20s linear infinite;
+    will-change: transform;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .hero-conic-rotate {
+      animation: none;
+    }
+  }
+}
+
+@layer components {
+  /* Enterprise Button Variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--shadow-card)] transition-[var(--transition-smooth)] font-montserrat font-medium px-8 py-4 rounded;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-[var(--shadow-card)] transition-[var(--transition-smooth)] font-montserrat font-medium px-8 py-4 rounded border border-border;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 shadow-[var(--shadow-card)] transition-[var(--transition-smooth)] font-montserrat font-medium px-6 py-3 rounded;
+  }
+  
+  /* Enterprise Cards */
+  .card-enterprise {
+    @apply bg-card text-card-foreground shadow-[var(--shadow-card)] rounded border border-border/50 transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-elevated)];
+  }
+  
+  /* Focus States for Accessibility */
+  .focus-enterprise {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+  
+  /* Animated Underline Links */
+  .link-animated {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  /* Shared Hero Animation System - Reusable across service pages */
+  .hero-animated {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(to bottom right, 
+      hsl(var(--background)), 
+      hsl(var(--background)), 
+      hsl(var(--muted) / 0.2));
+  }
+
+  /* Animated background layer container */
+  .hero-animated__bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  /* Radial gradient glow */
+  .hero-animated__bg-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 120%, 
+      rgba(229, 38, 41, 0.1), 
+      transparent);
+  }
+
+  /* Rotating conic gradient - uses Framer Motion in components */
+  .hero-animated__bg-rotation {
+    position: absolute;
+    inset: 0;
+    background-image: conic-gradient(
+      from 0deg at 50% 50%, 
+      transparent, 
+      hsl(var(--primary)), 
+      transparent
+    );
+    background-size: 400px 400px;
+  }
+
+  /* Content container with proper z-index */
+  .hero-animated__content {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Keyframes for conic rotation */
+  @keyframes hero-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Shared Hero Animation System (for other service pages) */
+  .sf-hero {
+    --hero-red: #E52629;
+    --hero-blue: #007AFF;
+    --hero-ink: #1C1C1C;
+    --hero-text: #3C3C3C;
+    --hero-border: #E6E6E6;
+    --hero-ease: cubic-bezier(.22, 1, .36, 1);
+    --hero-bg-loop: 22s;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #fff;
+    min-height: 72vh;
+  }
+
+  /* Background drift + faint grid */
+  .sf-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .sf-hero__bg::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    opacity: 0.9;
+    will-change: transform;
+    background:
+      radial-gradient(40% 40% at 20% 30%, color-mix(in srgb, var(--hero-red) 12%, transparent) 0%, transparent 70%),
+      radial-gradient(35% 35% at 80% 70%, color-mix(in srgb, var(--hero-blue) 12%, transparent) 0%, transparent 70%);
+    animation: heroDrift var(--hero-bg-loop) linear infinite;
+  }
+
+  .sf-hero__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    mix-blend-mode: normal;
+    will-change: transform;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.03) 0 1px, transparent 1px 20px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,.03) 0 1px, transparent 1px 20px);
+    animation: heroGrid 60s linear infinite alternate;
+  }
+
+  @keyframes heroDrift {
+    0% { transform: translate3d(-2%, -2%, 0) rotate(.5deg) scale(1.04); }
+    50% { transform: translate3d(2%, 2%, 0) rotate(-.5deg) scale(1.02); }
+    100% { transform: translate3d(-2%, -2%, 0) rotate(.5deg) scale(1.04); }
+  }
+
+  @keyframes heroGrid {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-2%, -2%, 0); }
+  }
+
+  /* Pause control */
+  .sf-hero__pause {
+    position: absolute;
+    z-index: 2;
+    top: 14px;
+    right: 14px;
+    font: 500 12px/1.2 Inter, system-ui;
+    color: var(--hero-ink);
+    background: #fff;
+    border: 1px solid var(--hero-border);
+    padding: 8px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition-micro);
+  }
+
+  .sf-hero__pause:hover {
+    background: #f9f9f9;
+  }
+
+  [data-motion="paused"] .sf-hero__bg::before,
+  [data-motion="paused"] .sf-hero__bg::after {
+    animation-play-state: paused;
+  }
+
+  /* No-bleed guarantee */
+  .sf-hero + * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Scroll margin for hero sections to prevent sticky header overlap */
+  #dm-hero,
+  #hero {
+    scroll-margin-top: 88px;
+  }
+
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .appian-hero::before,
+    .appian-hero-bg-wash,
+    .appian-hero-orbs .orb,
+    .appian-hero-particles .dot,
+    .sf-hero__bg::before,
+    .sf-hero__bg::after {
+      animation: none !important;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Scoped hover styles for cloud, data-migration, about, and careers pages */
+  #services-cloud .loc-card-hover-primary,
+  #cloud-platforms .loc-card-hover-primary,
+  #accelerators .loc-card-hover-primary,
+  #services-data-migration .loc-card-hover-primary,
+  #dm-cutover-cards .loc-card-hover-primary,
+  #dm-security-cards .loc-card-hover-primary,
+  #dm-tooling-cards .loc-card-hover-primary,
+  #dm-insights-cards .loc-card-hover-primary,
+  #about-vision-mission .loc-card-hover-primary,
+  #about-what-we-do .loc-card-hover-primary,
+  #about-proof-trust .loc-card-hover-primary,
+  #about-values .loc-card-hover-primary,
+  #careers-open-roles .loc-card-hover-primary,
+  #careers-values .loc-card-hover-primary,
+  #careers-perks .loc-card-hover-primary {
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    background-clip: padding-box;
+  }
+  
+  #services-cloud .loc-card-hover-primary:hover,
+  #services-cloud .loc-card-hover-primary:focus-visible,
+  #cloud-platforms .loc-card-hover-primary:hover,
+  #cloud-platforms .loc-card-hover-primary:focus-visible,
+  #accelerators .loc-card-hover-primary:hover,
+  #accelerators .loc-card-hover-primary:focus-visible,
+  #services-data-migration .loc-card-hover-primary:hover,
+  #services-data-migration .loc-card-hover-primary:focus-visible,
+  #dm-cutover-cards .loc-card-hover-primary:hover,
+  #dm-cutover-cards .loc-card-hover-primary:focus-visible,
+  #dm-security-cards .loc-card-hover-primary:hover,
+  #dm-security-cards .loc-card-hover-primary:focus-visible,
+  #dm-tooling-cards .loc-card-hover-primary:hover,
+  #dm-tooling-cards .loc-card-hover-primary:focus-visible,
+  #dm-insights-cards .loc-card-hover-primary:hover,
+  #dm-insights-cards .loc-card-hover-primary:focus-visible,
+  #about-vision-mission .loc-card-hover-primary:hover,
+  #about-vision-mission .loc-card-hover-primary:focus-visible,
+  #about-what-we-do .loc-card-hover-primary:hover,
+  #about-what-we-do .loc-card-hover-primary:focus-visible,
+  #about-proof-trust .loc-card-hover-primary:hover,
+  #about-proof-trust .loc-card-hover-primary:focus-visible,
+  #about-values .loc-card-hover-primary:hover,
+  #about-values .loc-card-hover-primary:focus-visible,
+  #careers-open-roles .loc-card-hover-primary:hover,
+  #careers-open-roles .loc-card-hover-primary:focus-visible,
+  #careers-values .loc-card-hover-primary:hover,
+  #careers-values .loc-card-hover-primary:focus-visible,
+  #careers-perks .loc-card-hover-primary:hover,
+  #careers-perks .loc-card-hover-primary:focus-visible {
+    border-color: hsl(var(--primary)) !important;
+    box-shadow: 0 10px 24px rgba(229, 38, 41, 0.12);
+    transform: translateY(-2px);
+  }
+  
+  /* Scoped soft-break utility for cloud page What You Can Expect section */
+  #services-cloud .loc-softbreak {
+    display: inline;
+  }
+  
+  @media (min-width: 768px) {
+    #services-cloud .loc-softbreak::before {
+      content: '\A';
+      white-space: pre;
+    }
+  }
+  
+  /* Scoped eyebrow styling for Proven Results labels */
+  #services-cloud .loc-eyebrow,
+  #cloud-results .loc-eyebrow {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: hsl(var(--sys-charcoal));
+    text-transform: none;
+  }
+  
+  @media (min-width: 768px) {
+    #services-cloud .loc-eyebrow,
+    #cloud-results .loc-eyebrow {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Header Navigation Styling - Red Pill Hover */
+  .header-nav-item {
+    position: relative;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    transition: box-shadow 0.15s ease-out, background-color 0.15s ease-out, color 0.15s ease-out;
+    outline: none !important;
+  }
+  
+  /* Remove browser default outlines */
+  .header-nav-item:focus,
+  .header-nav-item:active,
+  .header-nav-item:visited {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Red pill hover (desktop/pointer devices only) */
+  @media (hover: hover) and (pointer: fine) {
+    .header-nav-item:hover {
+      box-shadow: inset 0 0 0 2px hsl(357 94% 55%);
+      background-color: rgba(229, 38, 41, 0.08);
+    }
+  }
+  
+  /* Accessible keyboard focus - red underline, not box */
+  .header-nav-item:focus-visible {
+    text-decoration: underline;
+    text-decoration-color: hsl(357 94% 55%);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    outline: none !important;
+  }
+  
+  /* Logo link - never styled */
+  .header-logo-link,
+  .header-logo-link:hover,
+  .header-logo-link:focus,
+  .header-logo-link:focus-visible,
+  .header-logo-link:active,
+  .header-logo-link:visited {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    outline: none !important;
+    text-decoration: none !important;
+    border: none !important;
+  }
+
+  /* Mobile Menu Toggle - Red Theme */
+  .mobile-menu-toggle {
+    outline: none !important;
+    border: 2px solid transparent;
+    transition: all 0.15s ease-out;
+  }
+
+  .mobile-menu-toggle:focus,
+  .mobile-menu-toggle:active {
+    outline: none !important;
+  }
+
+  /* Override Button ghost variant blue hover - force red theme */
+  .mobile-menu-toggle:hover {
+    background-color: rgba(229, 38, 41, 0.08) !important;
+    border-color: hsl(357 94% 55%) !important;
+  }
+
+  /* Red hover state on pointer devices */
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-menu-toggle:hover {
+      background-color: rgba(229, 38, 41, 0.08) !important;
+      border-color: hsl(357 94% 55%) !important;
+    }
+  }
+
+  /* Red focus ring for keyboard accessibility */
+  .mobile-menu-toggle:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(229, 38, 41, 0.35);
+    border-color: hsl(357 94% 55%);
+  }
+
+  /* Menu open state - red theme */
+  .mobile-menu-toggle[aria-expanded="true"] {
+    background-color: rgba(229, 38, 41, 0.08);
+    border-color: hsl(357 94% 55%);
+  }
+
+  .mobile-menu-toggle[aria-expanded="true"]:hover {
+    background-color: rgba(229, 38, 41, 0.12);
+  }
+
+  /* Icon color - red when hovered or open */
+  .mobile-menu-toggle:hover svg,
+  .mobile-menu-toggle[aria-expanded="true"] svg,
+  .mobile-menu-toggle:focus-visible svg {
+    color: hsl(357 94% 55%);
+  }
+
+  /* Accessibility utilities */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Leaflet Map Styles */
+  .leaflet-container {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .leaflet-popup-tip {
+    background: white;
+  }
+
+  .custom-marker {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .leaflet-control-zoom a {
+    border-radius: 0.375rem !important;
+    transition: all 0.2s;
+  }
+
+  .leaflet-control-zoom a:hover {
+    background-color: hsl(var(--sys-red)) !important;
+    color: white !important;
+  }
+}
+
+/* Brand link animated underline - reusable across footer and services menu */
+.brand-underline-link {
+  @apply relative;
+}
+
+.brand-underline-link::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-full h-0.5;
+  background-color: #E52629;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease-out;
+}
+
+.brand-underline-link:hover::after,
+.brand-underline-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .brand-underline-link::after {
+    transition: none;
+  }
+  
+  .brand-underline-link:hover::after,
+  .brand-underline-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Center-out underline animation variant */
+.brand-underline-link-center {
+  @apply relative;
+}
+
+.brand-underline-link-center::after {
+  content: '';
+  @apply absolute bottom-0 h-0.5;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  background-color: #E52629;
+  transition: transform 250ms ease-out;
+}
+
+.brand-underline-link-center:hover::after,
+.brand-underline-link-center:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-underline-link-center::after {
+    transition: none;
+  }
+}
+
+/* Hide Google reCAPTCHA floating badge as the legal text is already provided inline in the forms */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}

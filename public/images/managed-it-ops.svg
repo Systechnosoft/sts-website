@@ -1,0 +1,56 @@
+<!-- managed-it-ops.svg — lightweight, on-brand visual for Managed IT Services -->
+<svg viewBox="0 0 1600 900" width="100%" height="auto" role="img" aria-label="Managed IT operations: monitoring, security and automation" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="55%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ff2d2d" stop-opacity="0.16"/>
+      <stop offset="65%" stop-color="#0a0f1a" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#09121a"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0M0 40V0" stroke="#ffffff" stroke-opacity=".06" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+
+  <!-- network line -->
+  <path d="M160 620h320l80-90h260l70 60h250l60-60h240" fill="none" stroke="#ff6868" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+
+  <!-- server rack -->
+  <g transform="translate(250,420)" fill="none" stroke="#cde1ff" stroke-width="3">
+    <rect x="0" y="0" rx="16" ry="16" width="220" height="160" fill="#0e1d2a"/>
+    <rect x="20" y="34" width="180" height="20" rx="6" fill="#132536"/>
+    <rect x="20" y="74" width="180" height="20" rx="6" fill="#132536"/>
+    <rect x="20" y="114" width="120" height="20" rx="6" fill="#132536"/>
+    <circle cx="160" cy="124" r="5" fill="#2cff9b"/>
+    <circle cx="180" cy="124" r="5" fill="#ffd166"/>
+  </g>
+
+  <!-- shield/security -->
+  <g transform="translate(700,360)" stroke="#cde1ff" stroke-width="3" fill="none">
+    <path d="M80 0l80 28v64c0 50-38 95-80 120-42-25-80-70-80-120V28z" fill="#0e1d2a"/>
+    <path d="M60 88l24 24 46-46" stroke="#2cff9b" stroke-width="10"/>
+  </g>
+
+  <!-- automation/gear -->
+  <g transform="translate(1080,420)">
+    <circle cx="120" cy="80" r="72" fill="#0e1d2a" stroke="#cde1ff" stroke-width="3"/>
+    <g fill="none" stroke="#ffd166" stroke-width="10" stroke-linecap="round">
+      <path d="M120 18v24M120 118v24M66 44l17 17M157 135l17 17M46 98h24M170 98h24M66 152l17-17M157 61l17-17"/>
+    </g>
+    <circle cx="120" cy="80" r="26" fill="#132536" stroke="#8dd8ff"/>
+  </g>
+
+  <!-- small status nodes along the line -->
+  <g fill="#8dd8ff" fill-opacity=".75">
+    <rect x="520" y="520" width="18" height="18" rx="3"/>
+    <rect x="840" y="560" width="22" height="22" rx="4"/>
+    <rect x="1370" y="500" width="20" height="20" rx="3"/>
+  </g>
+</svg>
