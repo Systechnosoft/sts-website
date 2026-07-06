@@ -256,7 +256,7 @@ export default function ServiceHero({
                   width={image?.width || 1184}
                   height={image?.height || 672}
                   alt={image?.alt || "Hero illustration"}
-                  className="w-full h-auto rounded-2xl border border-[#E6E6E6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] object-cover transition-all duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-[-6px] group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
+                  className="w-full h-auto rounded-2xl border border-[#E6E6E6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] object-cover transition-all duration-300 ease-out group-hover:translate-y-[-6px] group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
                   loading="eager"
                   decoding="async"
                   sizes="(min-width: 1024px) 48vw, 92vw"

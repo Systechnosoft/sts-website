@@ -22,7 +22,7 @@ const pillars = [
   {
     icon: Code,
     title: "Low-code Apps",
-    description: "Build enterprise apps faster on Appian & Salesforce.",
+    description: <><Link to="/services/appian">Appian</Link> & <Link to="/services/salesforce">Salesforce</Link> enterprise apps.</>,
     href: "/services/bpa",
     cta: "Explore"
   },

@@ -282,7 +282,7 @@ export default function CustomerRelationshipManagement() {
                 <img
                   src={heroCrmImage}
                   alt="Abstract customer lifecycle showing unified data, automation, and connected sales, marketing, and service"
-                  className="w-full h-full object-cover transition-all duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-[-6px] group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
+                  className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:translate-y-[-6px] group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
                   loading="eager"
                   fetchPriority="high"
                   width={1280}

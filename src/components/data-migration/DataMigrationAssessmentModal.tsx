@@ -296,8 +296,6 @@ export function DataMigrationAssessmentModal({ open, onOpenChange }: DataMigrati
       lowConfidence: confidenceScore <= 4,
     };
 
-    console.log("Data Migration Assessment - Risk Flags:", riskFlags);
-
     return { totalScore, confidenceScore };
   };
 

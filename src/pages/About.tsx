@@ -28,17 +28,17 @@ import { cn } from "@/lib/utils";
 import { scrollToId } from "@/lib/scrollUtils";
 import heroAboutImage from "@/assets/hero-about-us.avif";
 
+const navItems = [
+  { id: "vision-mission", label: "Vision & Mission" },
+  { id: "what-we-do", label: "What We Do" },
+  { id: "how-we-deliver", label: "How We Deliver" },
+  { id: "proof-trust", label: "Proof & Trust" },
+  { id: "values", label: "Values" },
+  { id: "faqs", label: "FAQs" },
+];
+
 export default function About() {
   const [activeSection, setActiveSection] = useState("vision-mission");
-
-  const navItems = [
-    { id: "vision-mission", label: "Vision & Mission" },
-    { id: "what-we-do", label: "What We Do" },
-    { id: "how-we-deliver", label: "How We Deliver" },
-    { id: "proof-trust", label: "Proof & Trust" },
-    { id: "values", label: "Values" },
-    { id: "faqs", label: "FAQs" },
-  ];
 
 
   const values = [
@@ -86,7 +86,7 @@ export default function About() {
     {
       icon: Cpu,
       title: "Low-code",
-      description: "Appian and Salesforce workflows that accelerate time-to-market. Build enterprise apps without the enterprise overhead.",
+      description: <><Link to="/services/appian">Appian</Link> and <Link to="/services/salesforce">Salesforce</Link> workflows that accelerate time-to-market. Build enterprise apps without the enterprise overhead.</>,
       links: [
         { label: "Business Process Automation", href: "/services/bpa" },
         { label: "Customer Relationship Management", href: "/services/crm" },
@@ -233,7 +233,7 @@ export default function About() {
                   width={1270} 
                   height={847}
                   alt="Team collaboration and enterprise technology solutions at Systechnosoft"
-                  className="w-full h-auto rounded-2xl border border-[#E6E6E6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] object-cover transition-all duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-[-6px] group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]" 
+                  className="w-full h-auto rounded-2xl border border-[#E6E6E6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] object-cover transition-all duration-300 ease-out group-hover:translate-y-[-6px] group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]" 
                   loading="eager" 
                   decoding="async"
                   sizes="(min-width: 1024px) 48vw, 92vw"
