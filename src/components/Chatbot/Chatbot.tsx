@@ -9,7 +9,8 @@ import {
   Maximize,
   SpellCheck,
   Download,
-  Star
+  Star,
+  ChevronDown
 } from 'lucide-react';
 import './Chatbot.css';
 
@@ -606,7 +607,9 @@ function Chatbot(): JSX.Element {
 
   const convertTimeTo24Hour = (time: string): string => {
     const [rawTime, modifier] = time.split(' ');
-    let [hours, minutes] = rawTime.split(':').map(Number);
+    const parts = rawTime.split(':').map(Number);
+    let hours = parts[0];
+    const minutes = parts[1];
 
     if (modifier === 'PM' && hours !== 12) {
       hours += 12;
@@ -815,9 +818,10 @@ function Chatbot(): JSX.Element {
         <button
           className={`chatbot-toggle ${chatOpen ? 'open' : ''}`}
           onClick={() => setChatOpen(!chatOpen)}
+          title={chatOpen ? 'Close chat' : ''}
         >
           {chatOpen ? (
-            <X size={32} color="white" />
+            <ChevronDown size={32} color="white" />
           ) : (
           <img
             src="/logo-small.webp"
